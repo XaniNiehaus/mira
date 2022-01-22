@@ -1,0 +1,12 @@
+body, html {
+    margin: 0px;
+
+}
+
+.appContainer {
+    background-color: darkseagreen;
+    max-width: 1400px;
+    margin: auto;
+}
+
+
