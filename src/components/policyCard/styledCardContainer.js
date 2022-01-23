@@ -8,6 +8,7 @@ const StyledCardContainer = styled(Grid)`
   justify-content: center;
   align-items: center;
   padding: 8px;
+  padding-top: 32px;
   margin-bottom: 100px;
   @media (min-width: 800px) {
     padding: 16px;
