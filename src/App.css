@@ -4,7 +4,6 @@ body, html {
 }
 
 .appContainer {
-    background-color: darkseagreen;
     max-width: 1400px;
     margin: auto;
 }

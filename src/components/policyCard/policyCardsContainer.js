@@ -1,41 +1,31 @@
-import React, {useState} from 'react';
+import React from 'react';
 import {Grid} from "@mui/material";
 import PolicyCard from "./policyCard";
 import {StyledCardContainer} from "./styledCardContainer";
+import MyContext from "../../context/MyContext";
 
 function Item(props) {
     return null;
 }
 
-const PolicyCardsContainer = () => {
-    const [selectedCards, setSelectedCards] = useState([]);
-
-    const toggleCardSelected = (index) => {
-
-        if (selectedCards.includes(index)) {
-            console.log("UNSELECTING CARD!")
-            setSelectedCards(selectedCards.filter((i) => (i !== index)))
-        } else {
-            console.log("SELECTING CARD!")
-            setSelectedCards([...selectedCards, index])
-        }
-    }
-
+const PolicyCardsContainer = ({selectedPolicies, togglePolicySelected}) => {
     return (
-        <StyledCardContainer container spacing={4}>
-            <Grid item xs={12} sm={6} md={4} lg={3}>
-                <PolicyCard isSelected={selectedCards.includes(0)} setSelected={() => toggleCardSelected(0)} >xs=8</PolicyCard>
-            </Grid>
-            <Grid item xs={12} sm={6} md={4} lg={3}>
-                <PolicyCard isSelected={selectedCards.includes(1)} setSelected={() => toggleCardSelected(1)}>xs=4</PolicyCard>
-            </Grid>
-            <Grid item xs={12} sm={6} md={4} lg={3}>
-                <PolicyCard isSelected={selectedCards.includes(2)} setSelected={() => toggleCardSelected(2)}>xs=4</PolicyCard>
-            </Grid>
-            <Grid item xs={12} sm={6} md={4} lg={3}>
-                <PolicyCard isSelected={selectedCards.includes(3)} setSelected={() => toggleCardSelected(3)}>xs=8</PolicyCard>
-            </Grid>
-        </StyledCardContainer>
+        <MyContext.Consumer>
+            {context => (<StyledCardContainer container spacing={4}>
+                <Grid item xs={12} sm={6} md={4} lg={3}>
+                    <PolicyCard id={0} isSelected={context.policies?.includes(0)} togglePolicySelected={() => context.togglePolicySelected(0)}/>
+                </Grid>
+                <Grid item xs={12} sm={6} md={4} lg={3}>
+                    <PolicyCard id={1} isSelected={context.policies?.includes(1)} togglePolicySelected={() => context.togglePolicySelected(1)}/>
+                </Grid>
+                <Grid item xs={12} sm={6} md={4} lg={3}>
+                    <PolicyCard id={2} isSelected={context.policies?.includes(2)} togglePolicySelected={() => context.togglePolicySelected(2)}/>
+                </Grid>
+                <Grid item xs={12} sm={6} md={4} lg={3}>
+                    <PolicyCard id={3} isSelected={context.policies?.includes(3)} togglePolicySelected={() => context.togglePolicySelected(3)}/>
+                </Grid>
+            </StyledCardContainer>)}
+        </MyContext.Consumer>
     );
 };
 
