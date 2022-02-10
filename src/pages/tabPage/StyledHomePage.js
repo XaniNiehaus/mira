@@ -1,7 +1,6 @@
 import styled from "styled-components";
 
 const StyledHomePage = styled.div`
-  background: grey;
   padding: 50px 50px 100px 50px;
 
   .heading {
@@ -53,7 +52,6 @@ const StyledHomePage = styled.div`
     @media (max-width: 800px) {
       margin-bottom: 150px;
       .picture-block {
-        background: goldenrod;
         width: 100%;
         height: 400px;
       }

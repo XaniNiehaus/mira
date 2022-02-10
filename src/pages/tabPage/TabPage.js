@@ -11,7 +11,7 @@ const TabPage = () => {
     const [value, setValue] = React.useState(1);
 
     return (
-        <div>
+        <div >
             {value === 0 && < PoliciesPage/>}
             {value === 1 && <HomePage/>}
             {value === 2 && <FaqPage/>}
